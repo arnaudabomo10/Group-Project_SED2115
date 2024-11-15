@@ -1,2 +1,1 @@
-# Group-Project_SED2115
-Web applications programming project
+# Pair Project SED2115
