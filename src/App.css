@@ -1,38 +1,25 @@
-.App {
-  text-align: center;
+/* App.css */
+
+/* Style global pour le corps de la page */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; /* Police par défaut */
+  background-color: #f4f4f4; /* Couleur de fond légère */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Style pour le conteneur principal de l'application */
+h2 {
+  text-align: center; /* Centrer le texte */
+  color: #333; /* Couleur du texte */
+  margin-top: 50px; /* Marge supérieure pour espacer du haut de la page */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Ajout d'un style de transition pour les éléments */
+h2 {
+  transition: color 0.3s ease; /* Transition douce pour la couleur */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Changement de couleur au survol (hover) */
+h2:hover {
+  color: #007bff; /* Couleur bleue au survol */
 }

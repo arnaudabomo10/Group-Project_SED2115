@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header/Header';
+import HomePage from './components/HomePage/HomePage'; // Composant pour la page Home
+import AboutPage from './components/AboutPage/AboutPage'; // Composant pour la page About
+import FlightData from './components/FlightData'; // Importer le composant FlightData
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      
+      <Routes>
+        {/* Route pour la page d'accueil */}
+        <Route path="/" element={<HomePage />} /> 
+        {/* Route pour la page "About" */}
+        <Route path="/about" element={<AboutPage />} /> 
+        {/* Nouvelle route pour la page de données des vols */}
+        <Route path="/flights" element={<FlightData />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
