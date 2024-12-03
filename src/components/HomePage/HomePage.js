@@ -61,6 +61,12 @@ const HomePage = () => {
         <div className="textDiv"></div>
       </div>
 
+      <div className="homeContent container">
+  <div className="textDiv">
+    <h1 className="christmas-title">Christmas Packages</h1> {/* Texte ajouté */}
+  </div>
+</div>
+
       <div className="car-div">
         <h1>Search for Airports</h1>
         <form onSubmit={handleSubmit}>

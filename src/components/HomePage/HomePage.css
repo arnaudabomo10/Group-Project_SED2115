@@ -37,26 +37,17 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  top: 100%; /* Réduit la position verticale pour rapprocher le contenu du haut */
-  transform: translateY(-30%); /* Ajuste le décalage vertical */;
-  margin-top: 10px
+  transform: translateY(-20%);
 }
 
 .textDiv {
-  margin-bottom: 50px;
-  margin-top: 150px
+  margin-bottom: 30px;
 }
 
-.SmallText {
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+.christmas-title {
+  font-size: 2.5rem;
   color: #f9d342;
-}
-
-.HomePageTitle {
-  font-size: 3rem;
-  font-weight: bold;
+  margin-top: 20px;
 }
 
 /* Section formulaire */
@@ -64,20 +55,20 @@
   position: relative;
   z-index: 2;
   background: rgba(0, 0, 0, 0.7);
-  padding: 2px 10px; /* Réduit le padding pour limiter l'espace interne */
+  padding: 2px 20px; /* Réduit le padding pour limiter l'espace interne */
   margin: 50px auto; /* Augmente la marge au-dessus */
-  max-width: 350px; /* Définit une largeur maximale */
+  max-width: 300px; /* Définit une largeur maximale */
   min-height: 100px; /* Définit une hauteur minimale */
   border-radius: px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  margin-top: 100px;
+  margin-top: 100px
 }
 
 .car-div h1 {
   text-align: center;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
   font-size: 1.8rem;
-  margin-top: 10px;
+  color: #fff;
 }
 
 .input-group {
@@ -87,21 +78,28 @@
 .input-group label {
   display: block;
   font-size: 1rem;
-  margin-bottom: px;
+  margin-bottom: 8px;
+  color: #ccc;
 }
 
 .input-group input {
-  width: 98.6%;
-  padding: 8px;
+  width: 100%;
+  padding: 10px;
   font-size: 1rem;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #4289d5;
+  box-shadow: 0 0 8px rgba(66, 137, 213, 0.5);
 }
 
 button[type="submit"] {
   width: 100%;
-  padding: 10px 15px;
+  padding: 10px;
   font-size: 1rem;
   color: #fff;
   background-color: #4289d5;
@@ -113,6 +111,33 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #78ade6;
+}
+
+/* Suggestions */
+.suggestions-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0 0;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #fff;
+  position: absolute;
+  width: 93.7%;
+  z-index: 10;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+}
+
+.suggestions-list li:hover {
+  background-color: #f1f1f1;
 }
 
 /* Liste des résultats */
@@ -132,28 +157,5 @@ ul li {
   padding: 10px;
   border-radius: 4px;
   font-size: 1rem;
-
-  .suggestions-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    border: 1px solid #5464de;
-    max-height: 200px;
-    overflow-y: auto;
-    background-color: white;
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-  }
-  
-  .suggestions-list li {
-    padding: 8px;
-    cursor: pointer;
-  }
-  
-  .suggestions-list li:hover {
-    background-color: #c98585;
-  }
-  
-
+  color: #fff;
 }
