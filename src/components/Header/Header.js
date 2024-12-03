@@ -19,6 +19,7 @@ const Header = () => {
         <img src={logo} alt="Logo" />
       </div>
       <div className="navbar-icon" onClick={toggleMenu}>
+          console.log("Icone cliquée")
         <img src={navbarIcon} alt="Navbar Icon" />
       </div>
       <div className={`menu ${showMenu ? 'show' : ''}`}>

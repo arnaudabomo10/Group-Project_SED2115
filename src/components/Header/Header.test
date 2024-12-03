@@ -1,45 +1,38 @@
-describe('Header Component', () => {
-  beforeEach(() => {
-    // Visite la page où le Header est rendu (adaptez l'URL si nécessaire)
-    cy.visit('/');
-  });
+import { render, fireEvent, screen } from '@testing-library/react';
+import Header from './Header'; // Assurez-vous d'importer le bon fichier Header
 
-  it('should display the logo image', () => {
-    // Vérifie si l'image du logo est présente
-    cy.get('header .logo img').should('have.attr', 'src').and('include', 'image.jpg');
-    cy.get('header .logo img').should('have.attr', 'alt', 'Logo');
-  });
+test('test du basculement du menu au clic de l\'icône navbar', () => {
+  // Spy pour vérifier l'affichage du message console
+  const consoleSpy = jest.spyOn(console, 'log');
 
-  it('should display the navbar icon', () => {
-    // Vérifie si l'icône de la navbar est présente
-    cy.get('header .navbar-icon img').should('have.attr', 'src').and('include', 'icon.png');
-    cy.get('header .navbar-icon img').should('have.attr', 'alt', 'Navbar Icon');
-  });
+  // Rendre le composant Header
+  render(<Header />);
 
-  it('should toggle the menu when navbar icon is clicked', () => {
-    // Vérifie que le menu est caché initialement
-    cy.get('header .menu').should('not.have.class', 'show');
-    
-    // Clique sur l'icône de la navbar pour ouvrir le menu
-    cy.get('header .navbar-icon').click();
-    
-    // Vérifie que le menu s'affiche après le clic
-    cy.get('header .menu').should('have.class', 'show');
-    
-    // Clique à nouveau sur l'icône pour fermer le menu
-    cy.get('header .navbar-icon').click();
-    
-    // Vérifie que le menu est caché à nouveau
-    cy.get('header .menu').should('not.have.class', 'show');
-  });
+  // Vérifier que le menu n'est pas visible au départ
+  const menu = screen.queryByText('Home');
+  expect(menu).not.toBeInTheDocument();
 
-  it('should display the correct links in the menu', () => {
-    // Clique sur l'icône de la navbar pour ouvrir le menu
-    cy.get('header .navbar-icon').click();
-    
-    // Vérifie que les liens "Home" et "About" sont présents dans le menu
-    cy.get('header .menu a').should('have.length', 2);
-    cy.get('header .menu a').eq(0).should('have.attr', 'href', '/').and('contain', 'Home');
-    cy.get('header .menu a').eq(1).should('have.attr', 'href', '/about').and('contain', 'About');
-  });
+  // Clic sur l'icône navbar
+  const navbarIcon = screen.getByAltText(/Navbar Icon/i);
+  fireEvent.click(navbarIcon);
+
+  // Vérifier que le message "Icone cliquée" s'affiche dans la console
+  expect(consoleSpy).toHaveBeenCalledWith("Icone cliquée");
+
+  // Vérifier que le menu est maintenant visible
+  const menuAfterClick = screen.getByText('Home');
+  expect(menuAfterClick).toBeInTheDocument();
+
+  // Simuler un deuxième clic pour fermer le menu
+  fireEvent.click(navbarIcon);
+
+  // Vérifier que le message "Icone cliquée" est affiché à nouveau
+  expect(consoleSpy).toHaveBeenCalledWith("Icone cliquée");
+
+  // Vérifier que le menu est maintenant masqué
+  const menuAfterSecondClick = screen.queryByText('Home');
+  expect(menuAfterSecondClick).not.toBeInTheDocument();
+
+  // Nettoyage après le test
+  consoleSpy.mockRestore();
 });

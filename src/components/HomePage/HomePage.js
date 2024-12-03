@@ -40,6 +40,7 @@ const HomePage = () => {
       maxDistance: maxDistance ? parseInt(maxDistance, 10) : null,
       maxDuration: maxDuration ? parseInt(maxDuration, 10) : null,
     };
+    console.log("Filters before search:", filters);
 
     const matchingAirports = findAirports(filters);
     setResults(matchingAirports);
