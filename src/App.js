@@ -5,7 +5,6 @@ import './App.css';
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage'; // Composant pour la page Home
 import AboutPage from './components/AboutPage/AboutPage'; // Composant pour la page About
-import FlightData from './components/FlightData'; // Importer le composant FlightData
 
 
 const App = () => {
@@ -19,7 +18,7 @@ const App = () => {
         {/* Route pour la page "About" */}
         <Route path="/about" element={<AboutPage />} /> 
         {/* Nouvelle route pour la page de données des vols */}
-        <Route path="/flights" element={<FlightData />} />
+        {/* <Route path="/flights" element={<FlightData />} /> */}
       </Routes>
     </Router>
   );

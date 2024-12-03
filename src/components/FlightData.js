@@ -1,53 +1,38 @@
-import React, { useEffect, useState } from 'react';
+const airports = [
+  { city: "Calgary", code: "YYC", distance: 2900, duration: 280 },
+  { city: "Charlottetown", code: "YYG", distance: 1000, duration: 117 },
+  { city: "Edmonton", code: "YEG", distance: 3000, duration: 270 },
+  { city: "Fredericton", code: "YFC", distance: 800, duration: 91 },
+  { city: "Halifax", code: "YHZ", distance: 1000, duration: 112 },
+  { city: "Iqaluit", code: "YFB", distance: 2100, duration: 210 },
+  { city: "Moncton", code: "YQM", distance: 900, duration: 105 },
+  { city: "Montreal", code: "YUL", distance: 150, duration: 52 },
+  { city: "Quebec City", code: "YQB", distance: 400, duration: 65 },
+  { city: "St. John's", code: "YYT", distance: 1900, duration: 210 },
+  { city: "Thunder Bay", code: "YQT", distance: 1200, duration: 149 },
+  { city: "Toronto (Billy Bishop)", code: "YTZ", distance: 350, duration: 68 },
+  { city: "Toronto Pearson", code: "YYZ", distance: 350, duration: 80 },
+  { city: "Vancouver", code: "YVR", distance: 4400, duration: 323 },
+  { city: "Winnipeg", code: "YWG", distance: 1700, duration: 177 },
+  { city: "Yellowknife", code: "YZF", distance: 3400, duration: 300 },
+  { city: "Boston", code: "BOS", distance: 800, duration: 75 },
+  { city: "Chicago", code: "ORD", distance: 1300, duration: 156 },
+  { city: "Fort Lauderdale", code: "FLL", distance: 2400, duration: 227 },
+  { city: "Fort Myers", code: "RSW", distance: 2300, duration: 230 },
+  { city: "Las Vegas", code: "LAS", distance: 3500, duration: 320 },
+  { city: "Newark", code: "EWR", distance: 550, duration: 102 },
+  { city: "Orlando", code: "MCO", distance: 2000, duration: 209 },
+  { city: "Tampa", code: "TPA", distance: 2200, duration: 205 },
+  { city: "Washington (Reagan)", code: "DCA", distance: 730, duration: 110 },
+  { city: "Washington (Dulles)", code: "IAD", distance: 730, duration: 110 },
+];
 
-const FlightData = () => {
-  const [flights, setFlights] = useState([]); // État pour stocker les données des vols
-  const [loading, setLoading] = useState(true); // État pour gérer le chargement
-  const [error, setError] = useState(null); // État pour gérer les erreurs
+export function findAirports({ locationCode = null, maxDistance = null, maxDuration = null }) {
+  return airports.filter(airport => {
+      const matchesLocation = locationCode ? airport.code.toUpperCase() === locationCode.toUpperCase() : true;
+      const withinDistance = maxDistance ? airport.distance <= maxDistance : true;
+      const withinDuration = maxDuration ? airport.duration <= maxDuration : true;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://rapidapi.com/ntd119/api/sky-scanner3/playground/apiendpoint_8207ef83-59d5-436f-aa58-1f9ddcfc4f7b', {
-          method: 'GET',
-          headers: {
-            'X-RapidAPI-Host': 'sky-scanner3.p.rapidapi.com', // Remplacez par l'hôte correct si nécessaire
-            'X-RapidAPI-Key': '83b87d8cd9msh773b98ed53643f3p19ee5ajsnb2952763c4e7', // Remplacez par votre clé API RapidAPI
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error('Erreur lors de la récupération des données');
-        }
-
-        const data = await response.json();
-        console.log(data)
-        setFlights(data.data.itineraries); // Ajustez selon la structure de vos données
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []); // Le tableau vide [] signifie que l'effet ne s'exécute qu'au montage du composant
-
-  if (loading) return <div>Chargement...</div>;
-  if (error) return <div>Erreur: {error}</div>;
-
-  return (
-    <div>
-      <h2>Données des Vols</h2>
-      <ul>
-        {flights.map((flight) => (
-          <li key={flight.id}>
-            {flight.price.formatted} - De {flight.legs[0].origin.name} à {flight.legs[0].destination.name}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default FlightData;
+      return matchesLocation && withinDistance && withinDuration;
+  });
+}

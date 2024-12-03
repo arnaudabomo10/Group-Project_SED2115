@@ -1,15 +1,48 @@
-import React, { useState } from 'react';
-import './HomePage.css';
-import video from '../../Assets/video.mp4';
+import React, { useState } from "react";
+import "./HomePage.css";
+import video from "../../Assets/video.mp4";
+import { findAirports } from "../FlightData"; // Importer le composant FlightData
 
 const HomePage = () => {
-  const [price, setPrice] = useState(5000); // État pour la valeur du slider
+  const [locationCode, setLocationCode] = useState("");
+  const [maxDistance, setMaxDistance] = useState("");
+  const [maxDuration, setMaxDuration] = useState("");
+  const [results, setResults] = useState([]);
+  const [suggestions, setSuggestions] = useState([]); // Nouvel état pour les suggestions
 
-  // Fonction pour gérer les changements de la barre de défilement
-  const handlePriceChange = (event) => {
-    const newPrice = event.target.value;
-    setPrice(newPrice); // Met à jour l'état
-    console.log(`Price updated: $${newPrice}`); // Affiche la nouvelle valeur dans la console
+  const airports = [
+    "YYC", "YYG", "YEG", "YFC", "YHZ", "YFB", "YQM", "YUL", "YQB", "YYT", "YQT", 
+    "YTZ", "YYZ", "YVR", "YWG", "YZF", "BOS", "ORD", "FLL", "RSW", "LAS", "EWR", "MCO", 
+    "TPA", "DCA", "IAD"
+  ]; // Liste des codes d'aéroports pour la suggestion
+
+  // Fonction pour filtrer les suggestions en fonction de l'entrée utilisateur
+  const handleInputChange = (e) => {
+    const userInput = e.target.value;
+    setLocationCode(userInput);
+
+    if (userInput) {
+      // Filtrer les suggestions en fonction du code d'aéroport
+      const filteredSuggestions = airports.filter(code =>
+        code.toUpperCase().includes(userInput.toUpperCase())
+      );
+      setSuggestions(filteredSuggestions); // Mettre à jour les suggestions
+    } else {
+      setSuggestions([]); // Effacer les suggestions quand l'input est vide
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const filters = {
+      locationCode: locationCode.trim() || null,
+      maxDistance: maxDistance ? parseInt(maxDistance, 10) : null,
+      maxDuration: maxDuration ? parseInt(maxDuration, 10) : null,
+    };
+
+    const matchingAirports = findAirports(filters);
+    setResults(matchingAirports);
   };
 
   return (
@@ -24,48 +57,71 @@ const HomePage = () => {
         type="video/mp4"
       />
       <div className="homeContent container">
-        <div className="textDiv">
-          <span className="SmallText">Christmas Packages</span>
-          <h1 className="HomePageTitle">Search your destination</h1>
-        </div>
+        <div className="textDiv"></div>
       </div>
 
-      <div className="CardDiv grid">
-        {/* Champ 1 : Destination */}
-        <div className="destinationInput">
-          <label htmlFor="city">Search your destination:</label>
-          <div className="input flex">
-            <input id="city" type="text" placeholder="Enter destination here..." />
+      <div className="car-div">
+        <h1>Search for Airports</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label>
+              Location Code:
+              <input
+                type="text"
+                value={locationCode}
+                onChange={handleInputChange} // Mettre à jour avec les suggestions
+                placeholder="e.g., YUL"
+              />
+            </label>
+            {suggestions.length > 0 && (
+              <ul className="suggestions-list">
+                {suggestions.map((suggestion, index) => (
+                  <li key={index} onClick={() => setLocationCode(suggestion)}>
+                    {suggestion}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-        </div>
-
-        {/* Champ 2 : Date */}
-        <div className="dateInput">
-          <label htmlFor="date">Search by date:</label>
-          <div className="input flex">
-            <input id="date" type="date" placeholder="Select a date..." />
+          <div className="input-group">
+            <label>
+              Max Distance (km):
+              <input
+                type="number"
+                value={maxDistance}
+                onChange={(e) => setMaxDistance(e.target.value)}
+                placeholder="e.g., 1000"
+              />
+            </label>
           </div>
-        </div>
-
-        {/* Champ 3 : Prix */}
-        <div className="priceInput">
-          <div className="label_total flex">
-            <label htmlFor="price">Max price :</label>
-            <h3 className="total">${price}</h3> {/* Affichage dynamique */}
+          <div className="input-group">
+            <label>
+              Max Flight Duration (minutes):
+              <input
+                type="number"
+                value={maxDuration}
+                onChange={(e) => setMaxDuration(e.target.value)}
+                placeholder="e.g., 120"
+              />
+            </label>
           </div>
-
-          <div className="input flex">
-            <input
-              type="range"
-              max="5000"
-              min="700"
-              value={price} // Liaison avec l'état
-              onChange={handlePriceChange} // Détecte les changements
-            />
-          </div>
-        </div>
-      </div> {/* Fermeture correcte de CardDiv */}
-    </section> // Fermeture correcte de section
+          <button type="submit">Search</button>
+        </form>
+        <h2>Results:</h2>
+        <ul>
+          {results.length > 0 ? (
+            results.map((airport, index) => (
+              <li key={index}>
+                {airport.city} ({airport.code}) - Distance: {airport.distance}{" "}
+                km, Duration: {airport.duration} minutes
+              </li>
+            ))
+          ) : (
+            <p>No airports found matching the criteria.</p>
+          )}
+        </ul>
+      </div>
+    </section>
   );
 };
 
