@@ -1,29 +1,34 @@
+/* Styles for the entire about page container */
 .about-page {
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
-  }
-  
-  .about-page h1 {
-    font-size: 2.5rem;
-    color: #0056b3;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-  
-  .about-page p {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    text-align: justify;
-  }
-  
-  .about-page p:last-child {
+    padding: 20px; /* Adds space inside the container for better readability */
+    font-family: 'Arial', sans-serif; /* Sets a clean and readable font */
+    line-height: 1.6; /* Improves text readability with adequate spacing between lines */
+    color: #333; /* Sets a dark gray text color for good contrast */
+    background-color: #f9f9f9; /* Light background color for a clean look */
+    border-radius: 8px; /* Rounds the corners for a softer design */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for a layered effect */
+    max-width: 800px; /* Limits the width to prevent overly long lines of text */
+    margin: 20px auto; /* Centers the container and adds spacing at the top and bottom */
+}
+
+/* Styling for the main heading inside the about page */
+.about-page h1 {
+    font-size: 2.5rem; /* Increases the font size for a prominent title */
+    color: #0056b3; /* Sets a bold blue color for the heading */
+    margin-bottom: 15px; /* Adds space below the heading for better separation */
+    text-align: center; /* Centers the heading text */
+}
+
+/* Styling for paragraphs within the about page */
+.about-page p {
+    font-size: 1.2rem; /* Sets a slightly larger font size for easy reading */
+    margin-bottom: 15px; /* Adds space below each paragraph for separation */
+    text-align: justify; /* Aligns text evenly on both sides for a neat look */
+}
+
+/* Removes margin below the last paragraph to maintain consistency */
+.about-page p:last-child {
     margin-bottom: 0;
-  }
+}
+
   
