@@ -1,161 +1,163 @@
-/* HomePage.css */
+/* Nick */
 
-/* Style général pour la section principale */
+/* General style for the main section */
 .Homepage {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-  color: #fff;
+  position: relative; /* Allows for child elements to be positioned relative to this container */
+  height: 100vh; /* Sets the height of the section to the full viewport height */
+  width: 100%; /* Occupies the full width of the viewport */
+  overflow: hidden; /* Ensures no content spills out of the container */
+  font-family: Arial, sans-serif; /* Sets the font family for text */
+  color: #fff; /* Sets the default text color to white */
 }
 
-/* Vidéo de fond */
+/* Background video styling */
 .background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  position: absolute; /* Allows the video to be placed in the background */
+  top: 0; /* Positions the video at the top of the container */
+  left: 0; /* Positions the video at the left of the container */
+  width: 100%; /* Makes the video span the full width */
+  height: 100%; /* Makes the video span the full height */
+  object-fit: cover; /* Ensures the video covers the container without distortion */
+  z-index: -1; /* Places the video behind other elements */
 }
 
-/* Superposition pour obscurcir légèrement la vidéo */
+/* Overlay to slightly darken the background video */
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  position: absolute; /* Positioned over the video */
+  top: 0; /* Fills the top of the container */
+  left: 0; /* Fills the left of the container */
+  width: 100%; /* Covers the full width of the container */
+  height: 100%; /* Covers the full height of the container */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1; /* Ensures it appears above the video */
 }
 
-/* Contenu principal */
+/* Main content styling */
 .homeContent {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  transform: translateY(-20%);
+  position: relative; /* Positioned above the overlay */
+  z-index: 2; /* Ensures it appears above the overlay */
+  text-align: center; /* Centers the content */
+  transform: translateY(-20%); /* Adjusts the vertical position slightly */
 }
 
 .textDiv {
-  margin-bottom: 30px;
+  margin-bottom: 30px; /* Adds space below the text container */
 }
 
 .christmas-title {
-  font-size: 2.5rem;
-  color: #f9d342;
-  margin-top: 20px;
+  font-size: 2.5rem; /* Sets the font size for the title */
+  color: #f9d342; /* Gold-like color for the title */
+  margin-top: 20px; /* Adds space above the title */
 }
 
-/* Section formulaire */
+/* Form section styling */
 .car-div {
-  position: relative;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 2px 20px; /* Réduit le padding pour limiter l'espace interne */
-  margin: 50px auto; /* Augmente la marge au-dessus */
-  max-width: 300px; /* Définit une largeur maximale */
-  min-height: 100px; /* Définit une hauteur minimale */
-  border-radius: px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  margin-top: 100px
+  position: relative; /* Positioned above the background */
+  z-index: 2; /* Ensures it appears above the overlay */
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  padding: 2px 20px; /* Reduces internal padding */
+  margin: 50px auto; /* Centers the form and adds space above it */
+  max-width: 300px; /* Sets a maximum width for the form */
+  min-height: 100px; /* Ensures a minimum height for the form */
+  border-radius: px; /* Placeholder for future customization */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+  margin-top: 100px; /* Adds space above the form */
 }
 
 .car-div h1 {
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 1.8rem;
-  color: #fff;
+  text-align: center; /* Centers the heading text */
+  margin-bottom: 10px; /* Adds space below the heading */
+  font-size: 1.8rem; /* Sets the font size for the heading */
+  color: #fff; /* White color for the text */
 }
 
+/* Input group styling */
 .input-group {
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Adds space between input groups */
 }
 
 .input-group label {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 8px;
-  color: #ccc;
+  display: block; /* Ensures the label occupies its own line */
+  font-size: 1rem; /* Sets the font size */
+  margin-bottom: 8px; /* Adds space below the label */
+  color: #ccc; /* Light gray color for the label */
 }
 
 .input-group input {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  outline: none;
+  width: 100%; /* Full width for the input field */
+  padding: 10px; /* Adds padding for comfortable typing */
+  font-size: 1rem; /* Sets the font size */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Rounded corners for the input field */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  outline: none; /* Removes the default outline */
 }
 
 .input-group input:focus {
-  border-color: #4289d5;
-  box-shadow: 0 0 8px rgba(66, 137, 213, 0.5);
+  border-color: #4289d5; /* Changes border color on focus */
+  box-shadow: 0 0 8px rgba(66, 137, 213, 0.5); /* Adds a glowing effect on focus */
 }
 
+/* Submit button styling */
 button[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #4289d5;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  width: 100%; /* Full width button */
+  padding: 10px; /* Adds padding */
+  font-size: 1rem; /* Sets the font size */
+  color: #fff; /* White text color */
+  background-color: #4289d5; /* Blue background color */
+  border: none; /* Removes border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Changes cursor to a pointer */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
 button[type="submit"]:hover {
-  background-color: #78ade6;
+  background-color: #78ade6; /* Lighter blue background on hover */
 }
 
-/* Suggestions */
+/* Suggestions dropdown */
 .suggestions-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 5px 0 0;
-  border: 1px solid #ccc;
-  max-height: 150px;
-  overflow-y: auto;
-  background-color: #fff;
-  position: absolute;
-  width: 93.7%;
-  z-index: 10;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  list-style-type: none; /* Removes default list styling */
+  padding: 0; /* Removes padding */
+  margin: 5px 0 0; /* Adds space above the suggestions */
+  border: 1px solid #ccc; /* Adds a border */
+  max-height: 150px; /* Limits the height of the dropdown */
+  overflow-y: auto; /* Adds a vertical scrollbar if necessary */
+  background-color: #fff; /* White background */
+  position: absolute; /* Positioned relative to the input */
+  width: 93.7%; /* Matches the input width */
+  z-index: 10; /* Ensures it appears above other elements */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .suggestions-list li {
-  padding: 10px;
-  cursor: pointer;
-  font-size: 1rem;
-  color: #333;
+  padding: 10px; /* Adds padding for clickable area */
+  cursor: pointer; /* Changes cursor to pointer */
+  font-size: 1rem; /* Sets font size */
+  color: #333; /* Dark text color */
 }
 
 .suggestions-list li:hover {
-  background-color: #f1f1f1;
+  background-color: #f1f1f1; /* Light gray background on hover */
 }
 
-/* Liste des résultats */
+/* Results list styling */
 h2 {
-  text-align: center;
-  margin-top: 20px;
+  text-align: center; /* Centers the heading */
+  margin-top: 20px; /* Adds space above the heading */
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: none; /* Removes default list styling */
+  padding: 0; /* Removes padding */
 }
 
 ul li {
-  background: #606a98;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 4px;
-  font-size: 1rem;
-  color: #fff;
+  background: #606a98; /* Dark blue background */
+  margin: 5px 0; /* Adds space between list items */
+  padding: 10px; /* Adds padding */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 1rem; /* Sets font size */
+  color: #fff; /* White text color */
 }

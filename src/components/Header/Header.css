@@ -1,75 +1,85 @@
+/* Nick */
+
+/* Header styling */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  background-color: #f4f4f4;
-  border-bottom: 1px solid #ddd;
-  position: relative; 
+  display: flex; /* Uses flexbox to align items */
+  justify-content: space-between; /* Distributes space between child elements */
+  align-items: center; /* Vertically centers items */
+  padding: 0 20px; /* Adds horizontal padding to the header */
+  background-color: #f4f4f4; /* Light gray background color */
+  border-bottom: 1px solid #ddd; /* Adds a subtle border at the bottom */
+  position: relative; /* Establishes a containing block for absolutely positioned children */
 }
 
+/* Logo styling */
 .logo img {
-  width: 150px;
-  height: auto;
-  margin: 5px 20px;
+  width: 150px; /* Sets the width of the logo */
+  height: auto; /* Maintains the aspect ratio of the logo */
+  margin: 5px 20px; /* Adds margin around the logo for spacing */
 }
 
+/* Navbar icon styling */
 .navbar-icon {
-  cursor: pointer;
+  cursor: pointer; /* Changes the cursor to indicate interactivity */
 }
 
 .navbar-icon img {
-  width: 40px;
-  height: 40px;
+  width: 40px; /* Sets the width of the icon */
+  height: 40px; /* Sets the height of the icon */
 }
 
+/* Dropdown menu styling */
 .menu {
-  position: absolute;
-  top: 50px; 
-  right: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 1000;  
+  position: absolute; /* Positions the menu relative to its closest positioned ancestor */
+  top: 50px; /* Places the menu below the header */
+  right: 20px; /* Aligns the menu to the right of the header */
+  background-color: #fff; /* Sets a white background for the menu */
+  border: 1px solid #ddd; /* Adds a light gray border around the menu */
+  padding: 10px; /* Adds internal spacing for menu items */
+  border-radius: 5px; /* Rounds the corners of the menu */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+  opacity: 0; /* Hides the menu by default */
+  transform: translateY(-10px); /* Moves the menu slightly upwards for animation */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for menu appearance */
+  z-index: 1000; /* Ensures the menu appears above other elements */
 }
 
+/* Menu visibility class */
 .menu.show {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Makes the menu visible */
+  transform: translateY(0); /* Moves the menu to its default position */
 }
 
+/* Menu item styling */
 .menu a {
-  display: block;
-  color: #333;
-  text-decoration: none;
-  padding: 10px 10px;
-  margin: 5px 0;
-  border-radius: 3px;
-  transition: background-color 0.3s ease;
+  display: block; /* Ensures menu links are block-level elements */
+  color: #333; /* Sets the text color to dark gray */
+  text-decoration: none; /* Removes underline from links */
+  padding: 10px 10px; /* Adds padding for clickable area */
+  margin: 5px 0; /* Adds vertical spacing between menu items */
+  border-radius: 3px; /* Rounds the corners of menu items */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
+/* Hover effect for menu items */
 .menu a:hover {
-  background-color: #007BFF;
-  color: #fff;
+  background-color: #007BFF; /* Changes the background color to blue on hover */
+  color: #fff; /* Changes the text color to white on hover */
 }
 
+/* Responsive styling for smaller screens */
 @media (max-width: 768px) {
   .logo img {
-      width: 120px;
+      width: 120px; /* Reduces the logo size on smaller screens */
   }
 
   .menu {
-      width: 100%;
-      top: calc(100% + 5px);
-      right: 0;
+      width: 100%; /* Makes the menu span the full width of the screen */
+      top: calc(100% + 5px); /* Positions the menu directly below the header */
+      right: 0; /* Aligns the menu to the right edge of the screen */
   }
 
   .menu a {
-      text-align: center;
+      text-align: center; /* Centers the text of menu items */
   }
 }
