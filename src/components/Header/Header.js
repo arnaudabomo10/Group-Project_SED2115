@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Header.css'; // Assurez-vous que ce fichier CSS est dans le même répertoire
-import logo from '../../Assets/image.jpg'; // Chemin relatif vers l'image
-import navbarIcon from '../../Assets/icon.png'; // Chemin relatif vers votre icône navbar
+import './Header.css'; 
+import logo from '../../Assets/image.jpg'; 
+import navbarIcon from '../../Assets/icon.png'; 
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -25,6 +25,7 @@ const Header = () => {
       <div className={`menu ${showMenu ? 'show' : ''}`}>
         <a href="/">Home</a>
         <a href="/about">About</a>
+        <a href="/destinations">Default Destinations</a>
       </div>
     </header>
   );

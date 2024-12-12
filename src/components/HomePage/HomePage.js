@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./HomePage.css";
 import video from "../../Assets/video.mp4";
-import { findAirports } from "../FlightData"; // Importer le composant FlightData
+import { findAirports } from "../FlightData"; 
 
 const HomePage = () => {
   const [locationCode, setLocationCode] = useState("");
@@ -26,9 +26,9 @@ const HomePage = () => {
       const filteredSuggestions = airports.filter(code =>
         code.toUpperCase().includes(userInput.toUpperCase())
       );
-      setSuggestions(filteredSuggestions); // Mettre à jour les suggestions
+      setSuggestions(filteredSuggestions); 
     } else {
-      setSuggestions([]); // Effacer les suggestions quand l'input est vide
+      setSuggestions([]); 
     }
   };
 
