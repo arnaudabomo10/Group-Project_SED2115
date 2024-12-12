@@ -63,12 +63,12 @@ const HomePage = () => {
 
       <div className="homeContent container">
   <div className="textDiv">
-    <h1 className="christmas-title">Christmas Packages</h1> {/* Texte ajouté */}
+    <h1 className="christmas-title">Welcome to FlyXchange</h1> {/* Texte ajouté */}
   </div>
 </div>
 
       <div className="car-div">
-        <h1>Search for Airports</h1>
+        <h1>Search for possible destinations</h1>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label>
@@ -124,7 +124,7 @@ const HomePage = () => {
               </li>
             ))
           ) : (
-            <p>No airports found matching the criteria.</p>
+            <p>No destinations found matching the criteria.</p>
           )}
         </ul>
       </div>
