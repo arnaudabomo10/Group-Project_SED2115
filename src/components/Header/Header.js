@@ -4,10 +4,10 @@ import './Header.css'; // Importing the CSS file for styling the Header componen
 import logo from '../../Assets/image.jpg'; // Importing the logo image
 import navbarIcon from '../../Assets/icon.png'; // Importing the navbar icon image
 
-const Header = () => {
+const Header = () => { //Arrow function that is assigned to a constant variable Header
   const [showMenu, setShowMenu] = useState(false); // Defining a state variable to track whether the menu is visible
 
-  // Function to toggle the menu visibility
+  // Function to toggle the menu visibility (making the menu visible)
   const toggleMenu = () => {
     console.log("Before:", showMenu); // Logging the current menu visibility state before toggling
     setShowMenu(!showMenu); // Updating the state to show or hide the menu
@@ -23,7 +23,7 @@ const Header = () => {
         <img src={navbarIcon} alt="Navbar Icon" /> {/* Displaying the navbar icon image */}
       </div>
       <div className={`menu ${showMenu ? 'show' : ''}`}> {/* Menu container, which conditionally applies the 'show' class */}
-        <a href="/">Home</a> {/* Link to the Home page */}
+        <a href="/">Home</a> {/* Link to the Home page. href means Hypertext Reference */}
         <a href="/about">About</a> {/* Link to the About page */}
         <a href="/destinations">Default Destinations</a> {/* Link to the Default Destinations page */}
       </div>

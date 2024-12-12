@@ -6,11 +6,11 @@ import { findAirports } from "../FlightData"; // Importing a utility function to
 
 const HomePage = () => {
   // State variables to manage user inputs, results, and suggestions
-  const [locationCode, setLocationCode] = useState(""); // State for the user's input location code
-  const [maxDistance, setMaxDistance] = useState(""); // State for the user's input maximum distance
-  const [maxDuration, setMaxDuration] = useState(""); // State for the user's input maximum flight duration
-  const [results, setResults] = useState([]); // State for the list of matching airport results
-  const [suggestions, setSuggestions] = useState([]); // State for the airport code suggestions
+  const [locationCode, setLocationCode] = useState(""); // State for the user's input location code (empty string)
+  const [maxDistance, setMaxDistance] = useState(""); // State for the user's input maximum distance (empty string)
+  const [maxDuration, setMaxDuration] = useState(""); // State for the user's input maximum flight duration (empty string)
+  const [results, setResults] = useState([]); // State for the list of matching airport results (empty array)
+  const [suggestions, setSuggestions] = useState([]); // State for the airport code suggestions (empty array)
 
   // List of predefined airport codes for generating suggestions
   const airports = [
@@ -27,7 +27,7 @@ const HomePage = () => {
     if (userInput) {
       // Filter the airport list based on user input
       const filteredSuggestions = airports.filter(code =>
-        code.toUpperCase().includes(userInput.toUpperCase())
+        code.toUpperCase().includes(userInput.toUpperCase()) // Convert user input of airport code to upper case
       );
       setSuggestions(filteredSuggestions); // Update the suggestions state
     } else {
@@ -68,7 +68,7 @@ const HomePage = () => {
 
       <div className="homeContent container"> {/* Main content container */}
         <div className="textDiv">
-          <h1 className="christmas-title">Welcome to FlyXchange</h1> {/* Page title */}
+          <h1 className="page-title">Welcome to FlyXchange</h1> {/* Page title */}
         </div>
       </div>
 
