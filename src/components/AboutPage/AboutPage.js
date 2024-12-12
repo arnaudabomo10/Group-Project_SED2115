@@ -6,6 +6,7 @@ import './AboutPage.css';
 const AboutPage = () => {
  // Defines a functional component named AboutPage. Functional components return JSX to render UI.
   return (
+// The return statement specifies the JSX that will be rendered on the screen.
     <div className="about-page">
       <h1>Engagement communautaire</h1>
       <p>
