@@ -1,8 +1,10 @@
 //Gemma
 import React from 'react';
 import './AboutPage.css'; 
+// Imports a CSS file for styling the AboutPage component. It ensures the styles defined in AboutPage.css are applied.
 
 const AboutPage = () => {
+ // Defines a functional component named AboutPage. Functional components return JSX to render UI.
   return (
     <div className="about-page">
       <h1>Engagement communautaire</h1>
@@ -17,3 +19,4 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+// Exports the AboutPage component so it can be imported and used in other parts of the application.
