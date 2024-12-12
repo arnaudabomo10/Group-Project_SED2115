@@ -1,3 +1,4 @@
+// Nick
 import React, { useState } from 'react';
 import './Header.css'; 
 import logo from '../../Assets/image.jpg'; 
@@ -8,9 +9,9 @@ const Header = () => {
 
   // Fonction pour gérer l'affichage du menu
   const toggleMenu = () => {
-    console.log("Avant :", showMenu);
+    console.log("Before:", showMenu);
     setShowMenu(!showMenu);
-    console.log("Après :", !showMenu);
+    console.log("After:", !showMenu);
   };
 
   return (
